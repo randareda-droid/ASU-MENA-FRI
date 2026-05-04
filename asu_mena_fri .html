@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ASU-MENA FAIMER Regional Institute — Fellowship Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lato:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blue:       #1a4f8a;
+    --blue-light: #2563a8;
+    --blue-mid:   #3b82c4;
+    --blue-pale:  #e8f0fa;
+    --blue-dark:  #0f3360;
+    --gold:       #c9922a;
+    --gold-light: #f5c842;
+    --gold-pale:  #fdf6e3;
+    --bg:         #F4F6FA;
+    --white:      #ffffff;
+    --text:       #1a2640;
+    --text-muted: #5a6e8a;
+    --border:     #cdd8ec;
+    --shadow:     0 2px 16px rgba(26,79,138,0.09);
+    --shadow-hover: 0 6px 28px rgba(26,79,138,0.17);
+    --radius:     16px;
+    --radius-sm:  10px;
+    --font: 'Lato', sans-serif;
+    --font-display: 'Playfair Display', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    min-height: 100vh;
+    line-height: 1.7;
+  }
+
+  /* ── LANG BAR ── */
+  .lang-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  }
+
+  .lang-bar-logo {
+    margin-right: auto;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    letter-spacing: 0.5px;
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: var(--font);
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 55%, var(--blue-mid) 100%);
+    color: var(--white);
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 75% 25%, rgba(255,255,255,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0; right: 0;
+    height: 40px;
+    background: var(--bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 4px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 4.5vw, 36px);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(13px, 2.5vw, 16px);
+    font-weight: 300;
+    opacity: 0.88;
+    max-width: 600px;
+    margin: 0 auto 10px;
+    font-style: italic;
+  }
+
+  .hero-author {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.82;
+    letter-spacing: 0.3px;
+    margin-bottom: 22px;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  .hero-tag {
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: center;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: var(--radius);
+    overflow: hidden;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .hero-stat {
+    flex: 1;
+    min-width: 110px;
+    padding: 14px 12px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+  }
+
+  .hero-stat:last-child { border-right: none; }
+
+  .hero-stat .num {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .hero-stat .lbl {
+    font-size: 11px;
+    opacity: 0.75;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  /* ── TABS ── */
+  .tabs-wrap {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 49px;
+    z-index: 90;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tabs-wrap::-webkit-scrollbar { display: none; }
+
+  .tabs {
+    display: flex;
+    min-width: max-content;
+    padding: 0 16px;
+  }
+
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 14px 18px;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.22s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tab-btn.active {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+    font-weight: 700;
+  }
+
+  .tab-btn:hover:not(.active) {
+    color: var(--blue);
+    background: var(--blue-pale);
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 16px 64px;
+  }
+
+  .tab-panel { display: none; animation: fadeIn 0.3s ease; }
+  .tab-panel.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+
+  .card:hover { box-shadow: var(--shadow-hover); }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card p {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.75;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── SECTION HEADER ── */
+  .section-head {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin: 28px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue-pale);
+  }
+
+  .section-head:first-child { margin-top: 0; }
+
+  /* ── GRID LAYOUTS ── */
+  .grid2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .grid3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  /* ── STAT TILES ── */
+  .stat-tile {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+  }
+
+  .stat-tile:hover {
+    border-color: var(--blue);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .stat-tile .icon { font-size: 26px; margin-bottom: 8px; display: block; }
+
+  .stat-tile .val {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .stat-tile .desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ── AUDIENCE / ACCENT PANELS ── */
+  .accent-panel {
+    border-radius: var(--radius);
+    padding: 22px;
+    margin-bottom: 16px;
+    border-left: 5px solid var(--blue);
+    background: var(--white);
+    box-shadow: var(--shadow);
+  }
+
+  .accent-panel.gold  { border-color: var(--gold); }
+  .accent-panel.teal  { border-color: #0e8a6b; }
+  .accent-panel.red   { border-color: #c53030; }
+
+  .accent-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--blue-dark);
+  }
+
+  .accent-panel.gold .accent-title  { color: #7a5500; }
+  .accent-panel.teal .accent-title  { color: #085041; }
+  .accent-panel.red  .accent-title  { color: #7a1515; }
+
+  .accent-panel ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .accent-panel li {
+    font-size: 14px;
+    margin-bottom: 7px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 28px; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 6px; bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), var(--blue-mid));
+    border-radius: 2px;
+  }
+
+  .tl-item { position: relative; margin-bottom: 24px; }
+
+  .tl-dot {
+    position: absolute;
+    left: -28px;
+    top: 3px;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--blue);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .tl-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 3px;
+  }
+
+  .tl-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 4px;
+  }
+
+  .tl-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── TIP BOX ── */
+  .tip {
+    background: var(--blue-pale);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    font-size: 13.5px;
+    color: var(--blue-dark);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 14px 0;
+    border: 1px solid #b3caeb;
+  }
+
+  .tip-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  .tip.warn {
+    background: #fff8e6;
+    border-color: #f5c842;
+    color: #7a5a00;
+  }
+
+  .tip.success {
+    background: #eafaf3;
+    border-color: #7ecbaa;
+    color: #0f4d33;
+  }
+
+  .tip.gold {
+    background: var(--gold-pale);
+    border-color: #e5c170;
+    color: #7a5500;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .compare-table th {
+    background: var(--blue);
+    color: var(--white);
+    padding: 13px 16px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .compare-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: var(--bg); }
+
+  /* ── FAQ ── */
+  .faq-item {
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 16px 20px;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    transition: background 0.2s;
+  }
+
+  .faq-q:hover { background: var(--blue-pale); }
+  .faq-q.open  { color: var(--blue); }
+
+  .faq-arrow {
+    flex-shrink: 0;
+    font-size: 18px;
+    transition: transform 0.25s;
+    color: var(--blue);
+  }
+
+  .faq-q.open .faq-arrow { transform: rotate(180deg); }
+
+  .faq-a {
+    display: none;
+    padding: 14px 20px 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    border-top: 1px solid var(--border);
+  }
+
+  .faq-a.open { display: block; animation: fadeIn 0.25s ease; }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.65;
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .check-icon {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: #e8f6ee;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 11px;
+    color: #0e8a6b;
+    font-weight: 700;
+  }
+
+  /* ── PILL BADGES ── */
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 11px;
+    border-radius: 20px;
+    margin: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .pill-blue  { background: var(--blue-pale); color: var(--blue-dark); }
+  .pill-gold  { background: var(--gold-pale); color: #7a5500; }
+  .pill-teal  { background: #e8f8f3; color: #0a5c41; }
+  .pill-red   { background: #fdeaea; color: #7a1515; }
+
+  /* ── APPLY CTA ── */
+  .cta-box {
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    text-align: center;
+    margin-top: 8px;
+    color: var(--white);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .cta-box h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .cta-box p {
+    font-size: 14px;
+    opacity: 0.88;
+    margin-bottom: 22px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--white);
+    padding: 12px 26px;
+    border-radius: 28px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font);
+  }
+
+  .btn-primary:hover { background: #b8811e; transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+    padding: 12px 26px;
+    border-radius: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    transition: all 0.2s;
+    cursor: pointer;
+    font-family: var(--font);
+  }
+
+  .btn-outline:hover { background: rgba(255,255,255,0.2); }
+
+  /* ── SHARE ── */
+  .share-section {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    text-align: center;
+    margin-top: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  .share-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 6px;
+  }
+
+  .share-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  .share-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: var(--font);
+  }
+
+  .share-btn.whatsapp { background: #25D366; color: white; }
+  .share-btn.whatsapp:hover { background: #1ebe5d; }
+  .share-btn.linkedin { background: #0A66C2; color: white; }
+  .share-btn.linkedin:hover { background: #095ba8; }
+  .share-btn.copy { background: var(--bg); color: var(--text); border: 1.5px solid var(--border); }
+  .share-btn.copy:hover { border-color: var(--blue); color: var(--blue); }
+
+  /* ── WARM NOTE ── */
+  .warm-note {
+    background: linear-gradient(135deg, var(--blue-pale), #f0f5ff);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 20px 0 0;
+    border: 1px solid #b3caeb;
+    font-size: 14px;
+    color: var(--blue-dark);
+    line-height: 1.8;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── CONTACT ROWS ── */
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .contact-row:last-child { border-bottom: none; }
+
+  .contact-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--blue-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+
+  .contact-label {
+    font-weight: 700;
+    color: var(--blue-dark);
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  .contact-val {
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .contact-val a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .contact-val a:hover { text-decoration: underline; }
+
+  /* ── LINK CARD ── */
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    margin-bottom: 10px;
+    transition: all 0.2s;
+  }
+
+  .link-card:hover {
+    border-color: var(--blue);
+    background: var(--blue-pale);
+    transform: translateX(3px);
+  }
+
+  .link-card-icon {
+    width: 40px; height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--blue);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .link-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 2px;
+  }
+
+  .link-card-url {
+    font-size: 12px;
+    color: var(--blue-mid);
+  }
+
+  .link-card-arrow {
+    margin-left: auto;
+    font-size: 18px;
+    color: var(--blue-mid);
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 20px 16px 40px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .footer a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 520px) {
+    .grid3 { grid-template-columns: 1fr 1fr; }
+    .hero-stat .num { font-size: 18px; }
+    .compare-table { font-size: 12px; }
+    .compare-table th, .compare-table td { padding: 10px 10px; }
+    .cta-box { padding: 24px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── LANG BAR ── -->
+<div class="lang-bar">
+  <span class="lang-bar-logo">🎓 ASU-MENA FRI</span>
+  <a class="btn-primary" href="https://apply.faimer.org/prog/asu-mena/" target="_blank" style="padding:6px 16px; font-size:12px; border-radius:16px;">Apply Now →</a>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-badge">FAIMER Regional Institute · MENA Region</div>
+  <h1>ASU-MENA<br/>Foundation for Advancement of International<br/>Medical Education and Research</h1>
+  <p class="hero-subtitle">Ain Shams University — Middle East & North Africa FAIMER Regional Institute</p>
+  <div class="hero-author">Faculty of Medicine, Ain Shams University, Cairo, Egypt</div>
+  <div class="hero-tags">
+    <span class="hero-tag">🎓 2-Year Fellowship</span>
+    <span class="hero-tag">🌍 MENA Region</span>
+    <span class="hero-tag">🏥 Health Professions Education</span>
+    <span class="hero-tag">🤝 Leadership</span>
+    <span class="hero-tag">📋 Project-Centered</span>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">240+</div>
+      <div class="lbl">Fellows Graduated</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">2019</div>
+      <div class="lbl">Est. in Cairo</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">~35</div>
+      <div class="lbl">Fellows / Year</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">4</div>
+      <div class="lbl">Hybrid Sessions</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TABS ── -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab('about')">🏛️ About</button>
+    <button class="tab-btn" onclick="openTab('program')">📚 Program</button>
+    <button class="tab-btn" onclick="openTab('eligibility')">✅ Eligibility</button>
+    <button class="tab-btn" onclick="openTab('apply')">📝 How to Apply</button>
+    <button class="tab-btn" onclick="openTab('faq')">❓ FAQ</button>
+    <button class="tab-btn" onclick="openTab('contact')">📞 Contact</button>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<div class="content">
+
+  <!-- ═══ TAB 1: ABOUT ═══ -->
+  <div class="tab-panel active" id="tab-about">
+
+    <h2 class="section-head">What is ASU-MENA-FRI?</h2>
+
+    <div class="card">
+      <div class="card-title">🌟 Overview</div>
+      <p>The <strong>Ain Shams University–Middle East North Africa FAIMER Regional Institute (ASU-MENA-FRI)</strong> is a premier regional fellowship based at the Faculty of Medicine, Ain Shams University, Cairo, Egypt. Established in 2019, it is the only FAIMER Regional Institute serving the entire MENA region.</p>
+      <p>The program focuses on <strong>health professions education, leadership development, and community building</strong>. Its curriculum is based on the International FAIMER Institute (USA) and adapted to the specific needs and context of health professions educators across the Middle East and North Africa.</p>
+      <p>To date, over <strong>240 fellows</strong> from the MENA region and beyond have graduated, contributing to a growing body of health professions educators well-versed in best practices of teaching and learning.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="card-title">🎯 Vision</div>
+        <p>To initiate an exchange of best practices in the Middle East and North Africa by attracting change agents capable of leading medical education reform in relevance to their national and community needs.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">🚀 Mission</div>
+        <p>To provide a collaborative environment for scholars in leadership positions in health professions education across MENA countries, ensuring they gain up-to-date knowledge, skills, and attitudes that help them lead change through communities of practice.</p>
+      </div>
+    </div>
+
+    <h2 class="section-head">About FAIMER</h2>
+
+    <div class="card">
+      <div class="card-title">🌐 The FAIMER Global Network</div>
+      <p>The <strong>Foundation for Advancement of International Medical Education and Research (FAIMER)</strong> was established in 2000 by the Educational Commission for Foreign Medical Graduates (ECFMG) in Philadelphia, USA. FAIMER concentrates on improving health professions education in developing regions through faculty development, targeted research, and educational quality improvement.</p>
+      <p>There are <strong>10 FAIMER Regional Institutes</strong> worldwide — one in Egypt, four in India, two in China, one in Chile, one in Indonesia, and one in Uganda. The ASU-MENA-FRI is the exclusive institute for the Middle East and North Africa region.</p>
+    </div>
+
+    <div class="tip success">
+      <span class="tip-icon">✅</span>
+      <div>The ASU-MENA-FRI certificate is <strong>accredited by both Ain Shams University (ASU) and the International FAIMER Institute (IFI) in Philadelphia</strong>. All FAIMER certificates — whether from regional institutes or the international institute — are held with equal distinction and prestige worldwide.</div>
+    </div>
+
+    <h2 class="section-head">Focus Areas</h2>
+
+    <div class="grid3">
+      <div class="stat-tile">
+        <span class="icon">📖</span>
+        <div class="val" style="font-size:14px; font-weight:700;">Health Professions Education</div>
+        <div class="desc">Advanced educational methods and best practices</div>
+      </div>
+      <div class="stat-tile">
+        <span class="icon">🏆</span>
+        <div class="val" style="font-size:14px; font-weight:700;">Leadership Development</div>
+        <div class="desc">Leading change in academic institutions</div>
+      </div>
+      <div class="stat-tile">
+        <span class="icon">🤝</span>
+        <div class="val" style="font-size:14px; font-weight:700;">Community of Practice</div>
+        <div class="desc">Lifelong global network of educators</div>
+      </div>
+      <div class="stat-tile">
+        <span class="icon">🔬</span>
+        <div class="val" style="font-size:14px; font-weight:700;">Scholarship & Research</div>
+        <div class="desc">Evidence-based education strategies</div>
+      </div>
+      <div class="stat-tile">
+        <span class="icon">📋</span>
+        <div class="val" style="font-size:14px; font-weight:700;">Project-Centered Learning</div>
+        <div class="desc">Real institutional change projects</div>
+      </div>
+      <div class="stat-tile">
+        <span class="icon">📢</span>
+        <div class="val" style="font-size:14px; font-weight:700;">Dissemination</div>
+        <div class="desc">Publishing and sharing findings regionally</div>
+      </div>
+    </div>
+
+  </div><!-- /tab-about -->
+
+
+  <!-- ═══ TAB 2: PROGRAM ═══ -->
+  <div class="tab-panel" id="tab-program">
+
+    <h2 class="section-head">Program Structure</h2>
+
+    <div class="card">
+      <div class="card-title">📐 Two-Year Part-Time Fellowship</div>
+      <p>The ASU-MENA-FRI is a <strong>two-year, part-time program</strong> designed to be completed alongside your existing professional role. Fellows focus on developing, implementing, evaluating, and disseminating an educational intervention project, supported by a core didactic curriculum delivered across four sessions.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Year 1 · Sessions 1 & 2</div>
+        <div class="tl-title">Project Development & Early Implementation</div>
+        <div class="tl-desc">Fellows develop their educational intervention project with guidance from a dedicated Project Advisor and peer cohort. During this phase, fellows seek ethical approval (where needed) and begin the implementation of their change project at their home institution. One session is held face-to-face in Cairo; the other is online.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Year 2 · Sessions 3 & 4</div>
+        <div class="tl-title">Evaluation, Dissemination & Project Report</div>
+        <div class="tl-desc">Fellows continue full implementation while focusing on evaluating outcomes and disseminating their findings. Outputs include a formal Project Report and/or a conference abstract. A second face-to-face session in Cairo and a final online session complete the program journey.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Graduation</div>
+        <div class="tl-title">Dual Accreditation & Global Community Membership</div>
+        <div class="tl-desc">Graduates receive a certificate accredited by Ain Shams University <em>and</em> the International FAIMER Institute in Philadelphia. Fellows join a lifelong, worldwide community of health professions educators. The fellowship journey never truly ends.</div>
+      </div>
+    </div>
+
+    <h2 class="section-head">Delivery Format</h2>
+
+    <div class="grid2">
+      <div class="accent-panel">
+        <div class="accent-title">🏙️ In-Person Sessions (×2)</div>
+        <ul>
+          <li>Held at the Faculty of Medicine, Ain Shams University, Cairo, Egypt</li>
+          <li>Intensive residential learning with peers and faculty</li>
+          <li>Hands-on workshops and project feedback sessions</li>
+          <li>Cultural exchange and community building</li>
+        </ul>
+      </div>
+      <div class="accent-panel gold">
+        <div class="accent-title">💻 Online Sessions (×2)</div>
+        <ul>
+          <li>Synchronous and asynchronous distance learning</li>
+          <li>Flexible participation from your home country</li>
+          <li>Continued project mentoring and peer exchange</li>
+          <li>Access to global FAIMER online resources</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-head">Core Curriculum</h2>
+
+    <div class="card">
+      <div class="card-title">📚 What You Will Learn</div>
+      <p>The curriculum is based on the International FAIMER Institute's framework, modified to be conceptual and relevant to the local needs of MENA health professions educators. It covers:</p>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Curriculum Domain</th>
+          <th>Key Skills & Outcomes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Educational Methods</strong></td>
+          <td>Curriculum design, teaching strategies, student assessment, clinical education</td>
+        </tr>
+        <tr>
+          <td><strong>Leadership & Management</strong></td>
+          <td>Leading institutional change, team management, strategic planning, stakeholder engagement</td>
+        </tr>
+        <tr>
+          <td><strong>Scholarship & Research</strong></td>
+          <td>Educational research design, ethical approval, data collection and analysis, abstract writing</td>
+        </tr>
+        <tr>
+          <td><strong>Project Implementation</strong></td>
+          <td>Project planning, timelines, goal-setting, sustainability strategies, institutionalization</td>
+        </tr>
+        <tr>
+          <td><strong>Community of Practice</strong></td>
+          <td>Peer mentoring, interprofessional collaboration, dissemination, network building</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip gold">
+      <span class="tip-icon">🌟</span>
+      <div>The MENA region contributes to the dissemination of advanced educational methods in health professions, creating a growing body of educators and increasing the number of health professions institutions practicing evidence-based teaching and learning.</div>
+    </div>
+
+  </div><!-- /tab-program -->
+
+
+  <!-- ═══ TAB 3: ELIGIBILITY ═══ -->
+  <div class="tab-panel" id="tab-eligibility">
+
+    <h2 class="section-head">Who Can Apply?</h2>
+
+    <div class="accent-panel">
+      <div class="accent-title">🌍 Geographic Eligibility</div>
+      <ul>
+        <li>The program is open to <strong>health professionals from the Middle East and North Africa</strong></li>
+        <li>Applicants from other Asian countries may also be considered</li>
+        <li>Approximately <strong>35 fellows</strong> are accepted into each annual cohort</li>
+      </ul>
+    </div>
+
+    <div class="accent-panel teal">
+      <div class="accent-title">🏥 Professional Profile</div>
+      <ul>
+        <li>Health professionals from <strong>all disciplines</strong> working in health professions education</li>
+        <li>Targeting <strong>academic leaders in positions</strong> that facilitate implementation of change</li>
+        <li>Faculty, program directors, department heads, deans, and educational coordinators</li>
+        <li>Those with the potential to play key roles in improving education at their institutions</li>
+      </ul>
+    </div>
+
+    <h2 class="section-head">Application Requirements</h2>
+
+    <div class="card">
+      <div class="card-title">📋 What You Need</div>
+      <ul class="checklist">
+        <li>
+          <span class="check-icon">✓</span>
+          <span>A clear <strong>educational intervention project idea</strong> that addresses a genuine need at your institution</span>
+        </li>
+        <li>
+          <span class="check-icon">✓</span>
+          <span>A formal <strong>institutional nomination</strong> demonstrating your institution's support for your participation</span>
+        </li>
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Capacity and authority to <strong>lead and implement</strong> an educational change at your institution</span>
+        </li>
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Commitment to attend <strong>all four sessions</strong> over the two-year program period</span>
+        </li>
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Ability to travel to Cairo, Egypt for <strong>two face-to-face residential sessions</strong></span>
+        </li>
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Completed online <strong>application form</strong> with all supporting documentation by the deadline</span>
+        </li>
+      </ul>
+    </div>
+
+    <h2 class="section-head">Scholarships & Fees</h2>
+
+    <div class="card">
+      <div class="card-title">💰 Financial Support</div>
+      <p>The ASU-MENA-FRI offers a <strong>wide range of scholarships</strong> for different nationalities, based on country economic status and the level of institutional support offered by the applicant's home institution.</p>
+      <p>Scholarship options are communicated to applicants <strong>upon acceptance of their project proposal</strong> — you do not need to worry about fees before you are accepted.</p>
+      <p>Tuition fees are calculated according to the currency exchange rate at the time of registration. For specific fee inquiries before applying, please contact the program directly.</p>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <div>Even if you are uncertain about fees, <strong>do not let this stop you from applying</strong>. The scholarship range is broad and is designed to be accessible to health professionals across the diverse economic landscape of the MENA region.</div>
+    </div>
+
+  </div><!-- /tab-eligibility -->
+
+
+  <!-- ═══ TAB 4: HOW TO APPLY ═══ -->
+  <div class="tab-panel" id="tab-apply">
+
+    <h2 class="section-head">Application Steps</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 1</div>
+        <div class="tl-title">Define Your Project Idea</div>
+        <div class="tl-desc">Identify an educational problem or gap at your institution that you want to address. Think about a realistic, implementable intervention — this becomes the heart of your fellowship experience. Your project should be something you have the position and authority to change.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 2</div>
+        <div class="tl-title">Obtain Institutional Support & Nomination</div>
+        <div class="tl-desc">Secure a formal nomination from your institution's leadership (Dean, Department Chair, or equivalent). This demonstrates your institution's commitment to supporting your participation and backing your project. This is a <strong>mandatory requirement</strong>.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 3</div>
+        <div class="tl-title">Complete the Online Application</div>
+        <div class="tl-desc">Visit the official FAIMER application portal and complete your application form with all required supporting documentation. Ensure all sections are thoroughly filled and submitted before the deadline. Late submissions are not reviewed.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 4</div>
+        <div class="tl-title">Review Process</div>
+        <div class="tl-desc">All submitted applications are reviewed after the submission deadline closes. The review committee evaluates your project proposal, institutional support, and professional profile. Results are communicated by email, typically by <strong>mid-September</strong>.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 5</div>
+        <div class="tl-title">Acceptance & Scholarship Options</div>
+        <div class="tl-desc">Accepted fellows receive an offer letter along with details of available scholarship options tailored to their nationality and institutional context. You then confirm your participation and complete registration with the applicable fee.</div>
+      </div>
+    </div>
+
+    <div class="tip warn">
+      <span class="tip-icon">⚠️</span>
+      <div>The review procedure starts <strong>only after the submission deadline</strong>. Make sure your application is complete and submitted well before the closing date. Check the FAIMER portal regularly for deadline updates.</div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Ready to Begin Your Fellowship Journey?</h3>
+      <p>Join over 240 graduates from the MENA region shaping the future of health professions education. Apply through the official FAIMER portal or explore our resources via Linktree.</p>
+      <div class="cta-btns">
+        <a class="btn-primary" href="https://apply.faimer.org/prog/asu-mena/" target="_blank">🎓 Apply Now — FAIMER Portal</a>
+        <a class="btn-outline" href="https://linktr.ee/asu_mena_fri1" target="_blank">🔗 Explore Our Linktree</a>
+      </div>
+    </div>
+
+  </div><!-- /tab-apply -->
+
+
+  <!-- ═══ TAB 5: FAQ ═══ -->
+  <div class="tab-panel" id="tab-faq">
+
+    <h2 class="section-head">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is ASU-MENA-FRI a full-time or part-time commitment?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        The fellowship is <strong>two years, part-time</strong>. It is specifically designed for working health professionals who maintain their existing roles. Most of the work — project development and implementation — happens at your home institution. Only 4 sessions require dedicated time away (2 in-person in Cairo, 2 online).
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What kind of project do I need to propose?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        Your project should be an <strong>educational intervention</strong> aimed at improving health professions education at your institution — for example, a new curriculum component, an assessment tool reform, a faculty development initiative, or a teaching method change. It must be feasible within two years, supported by your institution, and something you have authority to implement.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do I have to travel to Cairo for all sessions?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        Two of the four sessions are held <strong>face-to-face in Cairo, Egypt</strong> at Ain Shams University Faculty of Medicine. The other two are conducted online (synchronous and asynchronous). International travel costs to and from residential sessions are typically not covered by the program fee, so plan for this when applying.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is the ASU-MENA-FRI certificate internationally recognized?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        Yes. The certificate is <strong>accredited by both Ain Shams University (ASU)</strong> and the <strong>International FAIMER Institute (IFI) in Philadelphia</strong>. FAIMER policy holds all Regional Institute certificates at equal distinction to the International FAIMER Institute certificate. Graduates join the same global FAIMER community regardless of which institute they attended.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Are scholarships available, and who qualifies?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        Yes. A <strong>wide range of scholarships</strong> is offered based on country economic status and the level of institutional support provided. Scholarship details are communicated to accepted fellows along with their acceptance letter. You do not need to secure funding before applying — apply first and the financial options are discussed upon acceptance.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        When are results communicated after applying?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        Applications are reviewed after the submission deadline closes. Applicants are notified of results by email, typically by <strong>mid-September</strong> of the application year. The review process is comprehensive and considers your project proposal, institutional support letter, and professional background.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can I apply if I am not from Egypt?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        Absolutely. The program is open to health professionals from across the <strong>Middle East and North Africa</strong>, and participants from other Asian countries may also be considered. The program actively seeks diverse international representation from the region. Approximately 35 fellows are accepted per year from across all eligible countries.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What happens after I graduate?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        Graduation is the beginning, not the end. You join the <strong>global FAIMER community</strong> — a lifelong network of thousands of health professions educators worldwide. Many alumni go on to mentor future fellows, publish their work, contribute to health professions education policy, and continue leading change in their institutions and countries.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is the language of instruction?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        The program is conducted primarily in <strong>English</strong>, in line with the International FAIMER Institute curriculum and the regional academic standard. This facilitates connection with the global FAIMER network and ensures international applicability of all project outputs and publications.
+      </div>
+    </div>
+
+    <div class="warm-note">
+      Every fellowship journey is unique — the project you bring shapes the program as much as the program shapes you.<br/>
+      Reach out to us with any questions before you apply. We are here to help. 🌟
+    </div>
+
+  </div><!-- /tab-faq -->
+
+
+  <!-- ═══ TAB 6: CONTACT ═══ -->
+  <div class="tab-panel" id="tab-contact">
+
+    <h2 class="section-head">Get in Touch</h2>
+
+    <div class="card">
+      <div class="card-title">📞 Contact Information</div>
+      <div class="contact-row">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val"><a href="mailto:asu-mena-fri@med.asu.edu.eg">asu-mena-fri@med.asu.edu.eg</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">📱</div>
+        <div>
+          <div class="contact-label">Phone (Fees & Registration)</div>
+          <div class="contact-val">Mrs. Hoda Khalifa — <a href="tel:+201157753889">011 57753889</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-val">Faculty of Medicine, Ain Shams University<br/>Cairo, Egypt</div>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-head">Official Links</h2>
+
+    <a class="link-card" href="https://apply.faimer.org/prog/asu-mena/" target="_blank">
+      <div class="link-card-icon">🎓</div>
+      <div>
+        <div class="link-card-title">FAIMER Application Portal</div>
+        <div class="link-card-url">apply.faimer.org/prog/asu-mena/</div>
+      </div>
+      <span class="link-card-arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://linktr.ee/asu_mena_fri1" target="_blank">
+      <div class="link-card-icon" style="background: #43b89c;">🔗</div>
+      <div>
+        <div class="link-card-title">Linktree — Social Media & Resources</div>
+        <div class="link-card-url">linktr.ee/asu_mena_fri1</div>
+      </div>
+      <span class="link-card-arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.faimer.org" target="_blank">
+      <div class="link-card-icon" style="background: #1a4f8a;">🌐</div>
+      <div>
+        <div class="link-card-title">FAIMER Global Website</div>
+        <div class="link-card-url">www.faimer.org</div>
+      </div>
+      <span class="link-card-arrow">→</span>
+    </a>
+
+    <div class="cta-box" style="margin-top: 24px;">
+      <h3>Start Your Application Today</h3>
+      <p>Join over 240 graduates shaping health professions education across the Middle East and North Africa.</p>
+      <div class="cta-btns">
+        <a class="btn-primary" href="https://apply.faimer.org/prog/asu-mena/" target="_blank">🎓 Apply via FAIMER Portal</a>
+        <a class="btn-outline" href="https://linktr.ee/asu_mena_fri1" target="_blank">🔗 Explore Linktree</a>
+      </div>
+    </div>
+
+  </div><!-- /tab-contact -->
+
+  <!-- ── SHARE ── -->
+  <div class="share-section">
+    <div class="share-title">🔗 Share this guide with colleagues in health professions education</div>
+    <div class="share-sub">Useful for faculty, department heads, and academic leaders considering a FAIMER fellowship</div>
+    <div class="share-btns">
+      <a class="share-btn whatsapp" href="https://wa.me/?text=ASU-MENA FAIMER Regional Institute — Fellowship Guide: https://apply.faimer.org/prog/asu-mena/" target="_blank">
+        📱 WhatsApp
+      </a>
+      <a class="share-btn linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https://apply.faimer.org/prog/asu-mena/" target="_blank">
+        💼 LinkedIn
+      </a>
+      <button class="share-btn copy" onclick="copyLink()">
+        📋 Copy Link
+      </button>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  ASU-MENA FAIMER Regional Institute — Faculty of Medicine, Ain Shams University, Cairo, Egypt<br/>
+  This guide is for awareness and educational purposes. For official information, visit the <a href="https://apply.faimer.org/prog/asu-mena/" target="_blank">FAIMER Application Portal</a><br/>
+  Contact: <a href="mailto:asu-mena-fri@med.asu.edu.eg">asu-mena-fri@med.asu.edu.eg</a>
+</div>
+
+<script>
+  function openTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    const ids = ['about','program','eligibility','apply','faq','contact'];
+    const idx = ids.indexOf(id);
+    if (idx > -1) document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleFaq(btn) {
+    const ans = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    if (!isOpen) {
+      btn.classList.add('open');
+      ans.classList.add('open');
+    }
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText('https://apply.faimer.org/prog/asu-mena/')
+      .then(() => alert('✅ Link copied!'));
+  }
+</script>
+</body>
+</html>
